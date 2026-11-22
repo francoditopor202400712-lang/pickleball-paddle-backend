@@ -3,7 +3,7 @@ import cors from 'cors';
 import helmet from 'helmet';
 import morgan from 'morgan';
 import routes from './routes/index.js';
-import aiRoutes from "./src/routes/ai.routes.js";
+import aiRoutes from "./routes/ai.routes.js";
 
 app.use("/api/v1/ai", aiRoutes);
 

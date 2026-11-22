@@ -9,7 +9,7 @@ const ai = apiKey
 
 export const chatWithAI = async (req, res) => {
   try {
-    const { message, history = [] } = req.body;
+    const { message, history = [] } = req.body || {};
 
     if (!apiKey) {
       console.error("GEMINI_API_KEY is missing from environment.");

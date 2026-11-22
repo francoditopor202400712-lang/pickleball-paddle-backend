@@ -61,16 +61,18 @@ export const chatWithAI = async (req, res) => {
       reply: response.text
     });
 
-  } catch (error) {
-    console.error("GEMINI ERROR MESSAGE:", error?.message);
-    console.error("GEMINI ERROR STATUS:", error?.status);
-    console.error("GEMINI ERROR CODE:", error?.code);
-    console.error("GEMINI ERROR DETAILS:", error?.errorDetails);
+    }catch (error) {
+    console.error("========== FULL GEMINI ERROR ==========");
+    console.error(error);
+    console.error("Error name:", error?.name);
+    console.error("Error message:", error?.message);
+    console.error("Error cause:", error?.cause);
+    console.error("Error stack:", error?.stack);
+    console.error("========================================");
 
     return res.status(500).json({
       success: false,
-      message: "The AI assistant is temporarily unavailable.",
-      errorCode: error?.status || error?.code || "UNKNOWN"
+      message: "The AI assistant is temporarily unavailable."
     });
   }
 };

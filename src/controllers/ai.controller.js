@@ -70,11 +70,15 @@ Important rules:
       reply: response.text,
     });
   } catch (error) {
-    console.error("Gemini AI error:", error);
+  console.error("========== GEMINI AI ERROR ==========");
+  console.error("Message:", error?.message);
+  console.error("Status:", error?.status);
+  console.error("Code:", error?.code);
+  console.error("=====================================");
 
-    return res.status(500).json({
-      success: false,
-      message: "The AI assistant is temporarily unavailable.",
-    });
-  }
+  return res.status(500).json({
+    success: false,
+    message: "The AI assistant is temporarily unavailable.",
+  });
+}
 };
